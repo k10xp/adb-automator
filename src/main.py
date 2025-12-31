@@ -1,32 +1,35 @@
 import subprocess
+from typing import List
+
+from cli import parse_args
 from available_commands import run_adb, AdbAction
 
-if __name__ == "__main__":
+
+def main() -> None:
+    args = parse_args()
+
+    action = AdbAction[args.action.upper()]
+    extra: List[str] = []
+
+    if args.serial:
+        extra.extend(["-s", args.serial])
+
+    if args.extra:
+        extra.extend(args.extra)
+
     try:
-        # basic list devices
-        print(run_adb(AdbAction.LIST_DEVICES).stdout)
-
-        # detailed list devices
-        print(run_adb(AdbAction.LIST_DEVICES_LONG).stdout)
-
-        # check airplane mode status
-        res = run_adb(AdbAction.AIRPLANE_STATUS)
-        print("Airplane status:\n", res.stdout)
-
-        # enable airplane mode
-        run_adb(AdbAction.AIRPLANE_ENABLE)
-
-        # wake screen
-        run_adb(AdbAction.SCREEN_WAKE)
-
-        # turn Wi‑Fi off
-        run_adb(AdbAction.WIFI_DISABLE)
-
-        # list notifications
-        res = run_adb(AdbAction.NOTIFICATION_LIST)
-        print("Notifications:\n", res.stdout)
-
+        result = run_adb(action, extra_args=extra if extra else None)
+        if result.stdout:
+            print(result.stdout, end="")
+        if result.stderr:
+            print(result.stderr, end="")
     except subprocess.CalledProcessError as e:
-        print("ADB command failed with code", e.returncode)
-        print("Stdout:", e.stdout)
-        print("Stderr:", e.stderr)
+        print(f"ADB command failed with code {e.returncode}")
+        if e.stdout:
+            print("Stdout:\n", e.stdout)
+        if e.stderr:
+            print("Stderr:\n", e.stderr)
+
+
+if __name__ == "__main__":
+    main()
