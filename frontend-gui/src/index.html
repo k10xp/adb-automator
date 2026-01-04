@@ -2,23 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>ADB Runner</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
     <div class="page">
         <div class="left">
-            <div class="commands-checkbox"></div>
+            <p>Choose commands to run:</p>
+
+            <div class="commands-checkbox-container">
+                <label><input type="checkbox"> Screen On</label>
+                <label><input type="checkbox"> Wifi On</label>
+                <label><input type="checkbox"> Airplane mode on</label>
+                <label><input type="checkbox"> Get notifications</label>
+                <label><input type="checkbox"> Send SMS</label>
+            </div>
+
+            <div class="left-buttons-container">
+                <button>Run commands</button>
+                <button>Help</button>
+            </div>
         </div>
+
         <div class="right">
             <div class="commands-output">
-                <p>Output:</p>
-                <p>Line 1</p>
-                <p>Line 2</p>
+                <p>Output</p>
+                <p>===============</p>
+
+                <div class="commands-output-text">
+                    <p>Line 1</p>
+                    <p>Line 2</p>
+                    <p>Line 3</p>
+                </div>
             </div>
         </div>
     </div>
