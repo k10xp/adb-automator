@@ -1,0 +1,15 @@
+.page {
+  display: flex;          
+}
+
+.left {
+  flex: 2;              
+  background-color: black;
+  color: white;           
+}
+
+.right {
+  flex: 1;                
+  background-color: gray;
+  color: black;      
+}
