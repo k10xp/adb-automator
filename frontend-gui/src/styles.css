@@ -1,6 +1,8 @@
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
+  font-family: Arial, sans-serif;
 }
 
 .page {
@@ -15,6 +17,9 @@ html, body {
   color: white;
   padding: 20px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .commands-checkbox-container {
@@ -26,6 +31,46 @@ html, body {
 .commands-checkbox-container label {
   display: block;
   margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.left-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.run-button {
+  flex: 1;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 12px 0;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.run-button:hover {
+  background-color: #0056b3;
+}
+
+.help-button {
+  flex: 1;
+  background-color: #6c757d;
+  border: none;
+  color: white;
+  padding: 12px 0;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.help-button:hover {
+  background-color: #5a6268;
 }
 
 .right {
@@ -34,4 +79,12 @@ html, body {
   color: black;
   padding: 20px;
   box-sizing: border-box;
+}
+
+.commands-output {
+  padding: 10px;
+}
+
+.commands-output-text p {
+  margin: 5px 0;
 }
