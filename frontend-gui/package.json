@@ -6,14 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "fmt": "npx prettier --write .",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev:vite": "vite",
+    "build:vite": "vite build",
+    "dev:electron": "electron . --no-sandbox .",
+    "dev": "concurrently \"npm run dev:vite\" \"npm run dev:electron\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^9.2.1",
+    "electron": "^39.2.7",
     "prettier": "^3.7.4",
     "vite": "^7.3.0"
   }

@@ -4,7 +4,7 @@
 
 Install dependencies before starting development or building:
 
-```
+```shell
 npm install
 ```
 
@@ -12,7 +12,7 @@ npm install
 
 Start the development server with hot reload:
 
-```
+```shell
 npm run dev
 ```
 
@@ -20,7 +20,7 @@ npm run dev
 
 Create a production build:
 
-```
+```shell
 npm run build
 ```
 
@@ -28,8 +28,14 @@ npm run build
 
 Serve the production build locally:
 
-```
+```shell
 npm run preview
+```
+
+## Electron
+
+```shell
+npm run dev:electron
 ```
 
 ## Based on design
